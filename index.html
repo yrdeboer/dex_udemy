@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DTE - Distributed Token Exchange</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="./app.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default bg-light">
+      
+      <button
+	class="navbar-toggle collapsed"
+	type="button" data-toggle="collapse"
+	data-target="#navbarNavDropdown"
+	aria-controls="navbarNavDropdown"
+	aria-expanded="false"
+	aria-label="Toggle navigation">
+	
+	<span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+	<ul class="nav navbar-nav">
+	  <li class="nav-item active">
+            <a
+	      class="nav-link"
+	      href="/index.html">Home <span class="sr-only">(current)</span>
+	    </a>
+	  </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="/trading.html">Trading</a>
+	  </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="/managetoken.html">Token management</a>
+	  </li>
+
+	</ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+
+      <div class="row">
+	<div class="col-lg-8">
+	  <h3>
+	    Your have <span id="ethBalanceOnEx"></span> ETH on the exchange
+	  </h3>
+	  <h3>
+	    Your have <span id="fixedBalanceOnEx"></span> FIXED on the exchange.
+	  </h3>
+	</div>
+      </div>
+
+      <div class="row">
+	
+	<div class="col-lg-6">
+
+	  <h3>Deposit</h3>
+	  
+    	  <div class="row">
+	    <div class="col-lg-6">
+	      <div class="panel panel-default panel-primary">
+	      <div class="panel-heading">Deposit ETH</div>
+		<div class="panel-body">
+
+		  <form>
+		    <div class="form-group">
+		      <label for="inputAmountDepositEther">Amount in ETH</label>
+		      <input type="number" name="inputAmountDepositEther" class="form-control"
+			     id="inputAmountDepositEther" placeholder="For example: 95">
+		    </div>
+		    
+
+		    <button
+		      type="button"
+		      class="btn btn-default"
+		      onclick="App.depositEther();return false;">
+
+		      Deposit ETH
+		      
+		    </button>
+		    
+		  </form>
+		  
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<h3>Withdraw</h3>
+
+    	  <div class="row">
+	    <div class="col-lg-6">
+	      <div class="panel panel-default panel-primary">
+	      <div class="panel-heading">Withdraw ETH</div>
+		<div class="panel-body">
+
+		  <form>
+		    <div class="form-group">
+		      <label for="inputAmountWithdrawEther">Amount in ETH</label>
+		      <input type="number" name="inputAmountWithdrawEther" class="form-control"
+			     id="inputAmountWithdrawEther" placeholder="For example: 95">
+		    </div>
+
+		    <button
+		      type="button"
+		      class="btn btn-default"
+		      onclick="App.withdrawEther();return false;">
+
+		      Withdraw ETH
+		      
+		    </button>
+		    
+		  </form>
+		  
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<div class="col-lg-6">
+	  <h3>Events from the token contract.</h3>
+	  <div id="tokenEvents"></div>
+	  <h3>Events from the exchange contract.</h3>
+	  <div id="exchangeEvents"></div>
+	  <h3>Status from our javascript</h3>
+	  <span id="status"></span>
+	  <h3>Important information</h3>
+	  <span id="importantInformation"></span>
+	</div>
+
+      </div>
+      
+      <script type="text/javascript">
+      
+      window.addEventListener('load', function() {
+          console.log("Running init manage token ...");
+          App.initExchange();
+      });
+    </script>
+    
+</body>
+</html>
